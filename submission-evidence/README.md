@@ -52,7 +52,7 @@ See [REPRODUCE.md](REPRODUCE.md) for a clean-checkout recipe, frozen public inpu
 - Public annotation sources: [PHerc0332](https://dl.ash2txt.org/other/annotators/0332_fibers/) and [PHerc0139](https://dl.ash2txt.org/other/annotators/0139_fibers/), Vesuvius Challenge, **CC BY-NC 4.0**. Frozen manifests record every downloaded URL, size, and SHA-256. Raw annotation data are not relicensed as code or bundled here.
 - The unchanged upstream importer reads copies with the `version` value changed from 4 to 3. This reference route and the published import counts are **prior work by ChaseHendrick**, [issue #2320](https://github.com/ScrollPrize/villa/issues/2320) and [PR #2321](https://github.com/ScrollPrize/villa/pull/2321). This submission claims no new import fix. [Input provenance](evidence/export-databases/provenance.json).
 - Code remains under villa's [MIT license](LICENSE). Original reproduction scripts and report text are also released under MIT. Upstream copyright notices are preserved. The human terminal screenshot is provided as submission evidence.
-- AI assistance: OpenAI Codex led implementation and experiments; GPT-6.1 Sol helpers assisted research; Claude Opus 5.5 performed the independent technical audit. Sarkis Avetisyan is the human submitter and benchmark operator. AI tools are not additional human prize recipients.
+- AI assistance: OpenAI Codex led implementation and experiments; Claude Opus 5.5 performed the independent technical audit. Sarkis Avetisyan is the human submitter and benchmark operator. AI tools are not additional human prize recipients.
 
 ## Evidence handling
 
