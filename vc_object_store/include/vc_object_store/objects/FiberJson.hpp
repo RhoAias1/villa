@@ -26,4 +26,13 @@ std::string fiberRevisionJson(const ObjectStore&, const Txn&, const std::string&
 std::map<std::string, std::string> fiberNetworkJson(
     const ObjectStore&, const Txn&, const RevisionSelection&,
     const std::vector<std::string>& roots = {}, uint64_t byteBudget = 64 * 1024 * 1024);
+// Export one selected fiber with its applicable branch entries. The selection
+// still pins the complete graph, but only the requested fiber's line points and
+// annotations are materialized. Its JSON matches the corresponding entry from
+// fiberNetworkJson; linked endpoints supply control-point anchors only.
+// byteBudget limits the requested fiber's geometry; branch anchor resolution
+// reads endpoint control-point data separately.
+std::string fiberObjectJson(
+    const ObjectStore&, const Txn&, const RevisionSelection&, const std::string& objectUuid,
+    uint64_t byteBudget = 64 * 1024 * 1024);
 }

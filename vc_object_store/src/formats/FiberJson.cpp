@@ -231,9 +231,10 @@ Json fiberBranchJson(const ObjectStore& db, const Txn& txn, const EdgeRecord& ed
 }
 }
 
-std::map<std::string, std::string> fiberNetworkJson(
+namespace {
+std::map<std::string, std::string> fiberDocumentsJson(
     const ObjectStore& db, const Txn& txn, const RevisionSelection& selection,
-    const std::vector<std::string>& roots, uint64_t byteBudget)
+    const std::vector<std::string>& roots, uint64_t byteBudget, bool includeConnected)
 {
     std::map<std::string, ObjectRevision> revisions;
     for (const auto& [uuid, pin] : selection) {
@@ -266,22 +267,49 @@ std::map<std::string, std::string> fiberNetworkJson(
         if (!revisions.contains(uuid) || revisions.at(uuid).record.retired)
             throw std::invalid_argument("Unknown active fiber export root " + uuid);
         if (!included.insert(uuid).second) continue;
-        for (const auto& peer : neighbours[uuid]) pending.push_back(peer);
+        if (includeConnected)
+            for (const auto& peer : neighbours[uuid]) pending.push_back(peer);
     }
     std::map<std::string, Json> fibers;
     for (const auto& uuid : included)
         fibers.emplace(uuid, Json::parse(fiberRevisionJson(db, txn, revisions.at(uuid).uuid, byteBudget)));
     for (const auto& edge : edges) {
-        if (!included.contains(edge.aUuid)) continue;
-        const auto aGeometry = db.geometryRevision(txn, *revisions.at(edge.aUuid).geometryRevision);
-        const auto bGeometry = db.geometryRevision(txn, *revisions.at(edge.bUuid).geometryRevision);
+        const bool includeA = included.contains(edge.aUuid), includeB = included.contains(edge.bUuid);
+        if (!includeA && !includeB) continue;
+        const auto& aRevision = revisions.at(edge.aUuid);
+        const auto& bRevision = revisions.at(edge.bUuid);
+        // A linked fiber may still be awaiting geometry. Single-object export
+        // has not passed its peers through fiberRevisionJson's validation.
+        if (!aRevision.geometryRevision || !bRevision.geometryRevision)
+            throw std::runtime_error("Fiber object revision has no geometry");
+        const auto aGeometry = db.geometryRevision(txn, *aRevision.geometryRevision);
+        const auto bGeometry = db.geometryRevision(txn, *bRevision.geometryRevision);
+        if (!aGeometry || !bGeometry) throw std::runtime_error("Fiber geometry revision is missing");
         const auto key = Json::parse(edge.meta).value("adjacent", false) ? "adjacent_branches" : "branches";
-        fibers.at(edge.aUuid)[key].push_back(detail::fiberBranchJson(db, txn, edge, edge.aAnchor, edge.bAnchor, *aGeometry, *bGeometry));
-        fibers.at(edge.bUuid)[key].push_back(detail::fiberBranchJson(db, txn, edge, edge.bAnchor, edge.aAnchor, *bGeometry, *aGeometry));
+        if (includeA)
+            fibers.at(edge.aUuid)[key].push_back(detail::fiberBranchJson(db, txn, edge, edge.aAnchor, edge.bAnchor, *aGeometry, *bGeometry));
+        if (includeB)
+            fibers.at(edge.bUuid)[key].push_back(detail::fiberBranchJson(db, txn, edge, edge.bAnchor, edge.aAnchor, *bGeometry, *aGeometry));
     }
     std::map<std::string, std::string> result;
     for (auto& [uuid, fiber] : fibers) result.emplace(uuid, fiber.dump());
     return result;
+}
+}
+
+std::map<std::string, std::string> fiberNetworkJson(
+    const ObjectStore& db, const Txn& txn, const RevisionSelection& selection,
+    const std::vector<std::string>& roots, uint64_t byteBudget)
+{
+    return fiberDocumentsJson(db, txn, selection, roots, byteBudget, true);
+}
+
+std::string fiberObjectJson(
+    const ObjectStore& db, const Txn& txn, const RevisionSelection& selection,
+    const std::string& objectUuid, uint64_t byteBudget)
+{
+    const auto uuid = util::canonicalUuid(objectUuid);
+    return fiberDocumentsJson(db, txn, selection, {uuid}, byteBudget, false).at(uuid);
 }
 
 }

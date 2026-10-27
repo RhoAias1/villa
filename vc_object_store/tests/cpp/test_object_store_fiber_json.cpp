@@ -133,7 +133,9 @@ int main() try {
             record.meta = Json{{"coordinates",{{"volume_uuid",uuid},{"scale_factor",4.0}}},
                 {"source",{{"coordinates",{{"scale_factor",8.0}}},
                            {"coordinate_binding",{{"active_volume_id","stale"}}}}}}.dump();
-            db.upsertObject(txn, record); db.putGeometry(txn, objectUuid, vc::geometry::encode(geometry));
+            auto stored = geometry;
+            if (objectUuid == b) stored.linePoints.assign(4096, {1,2,3});
+            db.upsertObject(txn, record); db.putGeometry(txn, objectUuid, vc::geometry::encode(stored));
         }
         EdgeRecord edge; edge.kind = "fiber_branch"; edge.aUuid = a; edge.bUuid = b;
         edge.aAnchor.points = {{"control_point_ids", {10}}}; edge.bAnchor.points = {{"control_point_ids", {90}}};
@@ -151,6 +153,12 @@ int main() try {
     session.read(attachment, [&](const auto& db, const auto& txn, const auto&) {
         exported = fiberNetworkJson(db, txn, networkPins, {a});
         require(exported.size() == 2 && exported.contains(b), "export follows linked component only");
+        require(fiberObjectJson(db, txn, networkPins, a, 1024) == exported.at(a),
+                "single-fiber export matches network JSON without materializing a large peer");
+        require(fiberObjectJson(db, txn, networkPins, b) == exported.at(b),
+                "single-fiber export preserves the reverse endpoint and adjacent branch entries");
+        mustFail([&] { fiberNetworkJson(db, txn, networkPins, {a}, 1024); });
+        mustFail([&] { fiberObjectJson(db, txn, networkPins, b, 1024); });
         const auto first = Json::parse(exported.at(a)), second = Json::parse(exported.at(b));
         require(first["name"] == second["name"] && first["filename"] != second["filename"], "UUID wire names preserve duplicate labels");
         const auto& link = first["branches"].at(0);
@@ -165,17 +173,23 @@ int main() try {
         mustFail([&] { fiberNetworkJson(db,txn,{{a,networkPins.at(a)}}); });
         mustFail([&] { fiberNetworkJson(db,txn,{{a,{}}}); });
         mustFail([&] { fiberNetworkJson(db,txn,networkPins,{a},1); });
+        mustFail([&] { fiberObjectJson(db,txn,{{a,networkPins.at(a)}},a); });
+        mustFail([&] { fiberObjectJson(db,txn,{{a,{}}},a); });
+        mustFail([&] { fiberObjectJson(db,txn,networkPins,a,1); });
+        mustFail([&] { fiberObjectJson(db,txn,networkPins,util::newUuid()); });
     });
     session.act(attachment, networkPins, [&](auto& db, auto& txn) { db.removeEdge(txn,ordinary); });
     RevisionSelection currentNetworkPins;
     session.read(attachment, [&](const auto& db, const auto& txn, const auto&) {
         require(fiberNetworkJson(db,txn,networkPins,{a}) == exported, "pinned topology survives later edge deletion");
+        require(fiberObjectJson(db,txn,networkPins,a) == exported.at(a), "single-fiber export pins historical topology");
         auto current = networkPins;
         for (auto& [objectUuid, pin] : current) pin = db.currentObjectRevision(txn,objectUuid)->uuid;
         currentNetworkPins = current;
         const auto now = fiberNetworkJson(db,txn,current,{a});
         require(Json::parse(now.at(a))["branches"].empty(), "current export observes edge deletion");
         require(Json::parse(now.at(a))["adjacent_branches"].size() == 1, "parallel adjacent edge survives");
+        require(fiberObjectJson(db,txn,current,a) == now.at(a), "single-fiber export observes current edge deletion");
     });
     session.act(attachment, currentNetworkPins, [&](auto& db, auto& txn) {
         db.retireObject(txn, b);
@@ -185,7 +199,53 @@ int main() try {
         for (auto& [objectUuid, pin] : currentNetworkPins) pin = db.currentObjectRevision(txn,objectUuid)->uuid;
         const auto now = fiberNetworkJson(db,txn,currentNetworkPins,{a});
         require(now.size() == 1 && Json::parse(now.at(a))["adjacent_branches"].empty(), "retired endpoints and inactive edges are not transported");
+        require(fiberObjectJson(db,txn,currentNetworkPins,a) == now.at(a), "single-fiber export respects endpoint retirement");
+        mustFail([&] { fiberObjectJson(db,txn,currentNetworkPins,b); });
         require(fiberNetworkJson(db,txn,networkPins,{a}) == exported, "historical network remains independent of current lifecycle");
+        require(fiberObjectJson(db,txn,networkPins,a) == exported.at(a), "single-fiber historical export survives retirement");
     });
+    for (const bool rootIsLarger : {false, true}) {
+        auto first = util::newUuid(), second = util::newUuid();
+        if (second < first) std::swap(first, second);
+        const auto ready = rootIsLarger ? second : first;
+        const auto awaiting = rootIsLarger ? first : second;
+        auto pins = session.act(attachment, {{ready,{}},{awaiting,{}}}, [&](auto& db, auto& txn) {
+            // Stored endpoints follow insertion order, so place the peer first in one case.
+            for (const auto& objectUuid : {first, second}) {
+                auto record = doc.object; record.uuid = objectUuid;
+                db.upsertObject(txn, record);
+            }
+            db.putGeometry(txn, ready, doc.geometry);
+        });
+        session.read(attachment, [&](const auto& db, const auto& txn, const auto&) {
+            require(fiberObjectJson(db, txn, pins, ready) == fiberNetworkJson(db, txn, pins, {ready}).at(ready),
+                    "unlinked pending geometry does not prevent single-fiber export");
+        });
+        pins = session.act(attachment, pins, [&](auto& db, auto& txn) {
+            EdgeRecord edge; edge.kind = "fiber_branch"; edge.aUuid = ready; edge.bUuid = awaiting;
+            edge.aAnchor.points = edge.bAnchor.points = {{"control_point_ids", {0}}};
+            edge.aAnchor.position = edge.bAnchor.position = {1.25,2,3};
+            edge.aAnchor.direction = {1,0,0}; edge.bAnchor.direction = {0,1,0};
+            const auto edgeUuid = db.addEdge(txn, edge); db.setApproval(txn, edgeUuid, "approved");
+        });
+        const auto rejectsMissingGeometry = [&](const auto& callback) {
+            bool rejected = false;
+            try { callback(); }
+            catch (const std::runtime_error& error) {
+                rejected = std::string(error.what()) == "Fiber object revision has no geometry";
+            }
+            require(rejected, "a geometry-less branch endpoint must fail with the checked geometry error");
+        };
+        session.read(attachment, [&](const auto& db, const auto& txn, const auto&) {
+            const auto relationships = db.relationshipsAt(txn, pins);
+            require(relationships.size() == 1 && relationships.front().applicable,
+                    "geometry-less peer regression reaches an applicable branch");
+            const auto& stored = relationships.front().relationship.record;
+            require((rootIsLarger ? stored.aUuid : stored.bUuid) == awaiting,
+                    "geometry-less peer fixture covers each stored endpoint position");
+            rejectsMissingGeometry([&] { fiberNetworkJson(db, txn, pins, {ready}); });
+            rejectsMissingGeometry([&] { fiberObjectJson(db, txn, pins, ready); });
+        });
+    }
     std::cout << "fiber codec and checked commit receipt passed\n";
 } catch(const std::exception& e) { std::cerr << e.what() << '\n'; return 1; }
