@@ -1,0 +1,19 @@
+Exported revision 1931cd8e-4215-4935-aca9-36dc637522a9 to "<WORKSPACE>/evidence/sako-benchmark/0139-1/optimized-3.json"
+        0.10 real         0.09 user         0.00 sys
+            22446080  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1574  page reclaims
+                  21  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   2  voluntary context switches
+                   9  involuntary context switches
+          1571370803  instructions retired
+           374560099  cycles elapsed
+            11239856  peak memory footprint

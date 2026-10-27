@@ -1,0 +1,48 @@
+{
+  "base": "39a8cf3a124bdd5540ee826e1cb30047c8dc8c85",
+  "patch_sha256": "62bb5b1c679510607c1e8640d0ddd1af7845de9a9da2e11cf232a80f58d63b8e",
+  "patch_applies": true,
+  "patched_index_matches_working_files": [
+    "vc_object_store/include/vc_object_store/objects/FiberJson.hpp",
+    "vc_object_store/src/formats/FiberJson.cpp",
+    "vc_object_store/src/geometry/GeometryExport.cpp",
+    "vc_object_store/tests/cpp/test_object_store_fiber_json.cpp"
+  ],
+  "default_importer_and_python_contract_unchanged": true,
+  "diff_check_exit": 0,
+  "commands": [
+    {
+      "command": [
+        "git",
+        "read-tree",
+        "39a8cf3a124bdd5540ee826e1cb30047c8dc8c85"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "apply",
+        "--cached",
+        "--check",
+        "<WORKSPACE>/deliverable/submission.patch"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "apply",
+        "--cached",
+        "<WORKSPACE>/deliverable/submission.patch"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

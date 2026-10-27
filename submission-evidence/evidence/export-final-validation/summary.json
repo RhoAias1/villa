@@ -1,0 +1,96 @@
+{
+  "reference_binary_sha256": "caab6c80597e2538d9e508b5859438e524e2e7d43f8411cfd9206dfcbacee0a9",
+  "optimized_binary_sha256": "660557c0337d4ca64973b9a303837b0d715f514fb431181a5b3a85079321dce4",
+  "datasets": {
+    "0332": {
+      "fibers": 255,
+      "all_export_bytes_identical": true,
+      "control_points": 16917,
+      "line_points": 723429,
+      "known_coordinate_bindings_verified": 5,
+      "total_export_bytes": 57953153,
+      "input_database_unchanged": true,
+      "source_hashes_unchanged": true,
+      "runs": {
+        "reference": {
+          "command": [
+            "<WORKSPACE>/audit/scratch/base-build/verify_fiber_exports",
+            "network",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "<WORKSPACE>/evidence/export-final-validation/0332/reference"
+          ],
+          "exit": 0,
+          "seconds": 1.7313121249999313,
+          "log": "<WORKSPACE>/evidence/export-final-validation/0332/reference.log"
+        },
+        "network": {
+          "command": [
+            "<WORKSPACE>/build-export/verify_fiber_exports",
+            "network",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "<WORKSPACE>/evidence/export-final-validation/0332/network"
+          ],
+          "exit": 0,
+          "seconds": 1.769441458000074,
+          "log": "<WORKSPACE>/evidence/export-final-validation/0332/network.log"
+        },
+        "individual": {
+          "command": [
+            "<WORKSPACE>/build-export/verify_fiber_exports",
+            "individual",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "<WORKSPACE>/evidence/export-final-validation/0332/individual"
+          ],
+          "exit": 0,
+          "seconds": 9.859711041999617,
+          "log": "<WORKSPACE>/evidence/export-final-validation/0332/individual.log"
+        }
+      }
+    },
+    "0139": {
+      "fibers": 620,
+      "all_export_bytes_identical": true,
+      "control_points": 18076,
+      "line_points": 2307098,
+      "known_coordinate_bindings_verified": 619,
+      "total_export_bytes": 153219167,
+      "input_database_unchanged": true,
+      "source_hashes_unchanged": true,
+      "runs": {
+        "reference": {
+          "command": [
+            "<WORKSPACE>/audit/scratch/base-build/verify_fiber_exports",
+            "network",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "<WORKSPACE>/evidence/export-final-validation/0139/reference"
+          ],
+          "exit": 0,
+          "seconds": 3.861546790999455,
+          "log": "<WORKSPACE>/evidence/export-final-validation/0139/reference.log"
+        },
+        "network": {
+          "command": [
+            "<WORKSPACE>/build-export/verify_fiber_exports",
+            "network",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "<WORKSPACE>/evidence/export-final-validation/0139/network"
+          ],
+          "exit": 0,
+          "seconds": 3.828144584000256,
+          "log": "<WORKSPACE>/evidence/export-final-validation/0139/network.log"
+        },
+        "individual": {
+          "command": [
+            "<WORKSPACE>/build-export/verify_fiber_exports",
+            "individual",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "<WORKSPACE>/evidence/export-final-validation/0139/individual"
+          ],
+          "exit": 0,
+          "seconds": 60.730482375000065,
+          "log": "<WORKSPACE>/evidence/export-final-validation/0139/individual.log"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+Exported revision f6753a82-d485-4ff7-a43a-9d3af45e44d8 to "<WORKSPACE>/evidence/export-final-benchmark/0139-602/baseline-0.json"
+        3.50 real         3.38 user         0.11 sys
+           551370752  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               33860  page reclaims
+                  21  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   3  voluntary context switches
+                  30  involuntary context switches
+         62345233143  instructions retired
+         13182292526  cycles elapsed
+           538690400  peak memory footprint

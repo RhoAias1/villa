@@ -1,0 +1,51 @@
+['docker', '--context', 'colima-vesuvius-prize', 'run', '--rm', '--network', 'none', '--user', '501:20', '--mount', 'type=bind,source=<WORKSPACE>,target=/work', '--env', 'VC_OBJECT_STORE_BUILD_PYTHON_PATH=/work/build-linux-export/python', '--env', 'PYTHONDONTWRITEBYTECODE=1', 'vesuvius-prize-tests:20261026', 'cmake', '--build', 'build-linux-export', '-j', '2']
+[0/2] Re-checking globbed directories...
+[1/18] Building CXX object tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o
+[2/18] Building CXX object src/CMakeFiles/vc_objects.dir/formats/FiberJson.cpp.o
+[3/18] Linking CXX static library src/libvc_objects.a
+[4/18] Linking CXX executable bin/vc_object_export
+[5/18] Linking CXX executable bin/vc_object_ingest
+[6/18] Linking CXX executable bin/vc_object_hub
+[7/18] Linking CXX executable bin/vc_object_links
+[8/18] Linking CXX executable bin/test_object_store_session
+[9/18] Linking CXX executable bin/test_object_store_geometry_region
+[10/18] Linking CXX executable bin/test_object_store_volume_target
+[11/18] Linking CXX executable bin/test_object_store_fiber_session
+[12/18] Linking CXX executable bin/test_object_store_fiber_json
+FAILED: [code=1] bin/test_object_store_fiber_json 
+: && /usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/link.d tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o -o bin/test_object_store_fiber_json  src/libvc_objects.a  /usr/lib/aarch64-linux-gnu/libsqlite3.so  src/libvc_geometry.a  src/libvc_sftp.a  /usr/lib/aarch64-linux-gnu/libcrypto.so  /usr/lib/aarch64-linux-gnu/libzstd.so && :
+/usr/bin/aarch64-linux-gnu-ld.bfd: tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o: in function `main':
+test_object_store_fiber_json.cpp:(.text.startup+0x6e8c): undefined reference to `vc::objects::exportGeometry(vc::objects::ObjectStore&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::filesystem::__cxx11::path const&, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&, bool)'
+collect2: error: ld returned 1 exit status
+[13/18] Linking CXX executable bin/test_object_store_geometry_edits
+ninja: build stopped: subcommand failed.
+['docker', '--context', 'colima-vesuvius-prize', 'run', '--rm', '--network', 'none', '--user', '501:20', '--mount', 'type=bind,source=<WORKSPACE>,target=/work', '--env', 'VC_OBJECT_STORE_BUILD_PYTHON_PATH=/work/build-linux-export/python', '--env', 'PYTHONDONTWRITEBYTECODE=1', 'vesuvius-prize-tests:20261026', 'cmake', '--build', 'build-linux-export', '-j', '2']
+[0/2] Re-checking globbed directories...
+[1/7] Linking CXX executable bin/test_object_store_hub
+[2/7] Linking CXX executable bin/test_object_store_sftp
+[3/7] Linking CXX executable bin/bench_volume_queries
+[4/7] Linking CXX shared module python/vc_object_store/_native.cpython-314-aarch64-linux-gnu.so
+[5/7] Building CXX object tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o
+[6/7] Linking CXX executable bin/test_object_store_fiber_json
+['docker', '--context', 'colima-vesuvius-prize', 'run', '--rm', '--network', 'none', '--user', '501:20', '--mount', 'type=bind,source=<WORKSPACE>,target=/work', '--env', 'VC_OBJECT_STORE_BUILD_PYTHON_PATH=/work/build-linux-export/python', '--env', 'PYTHONDONTWRITEBYTECODE=1', 'vesuvius-prize-tests:20261026', 'ctest', '--test-dir', 'build-linux-export', '--output-on-failure']
+Test project /work/build-linux-export
+    Start 1: object_store_session
+1/8 Test #1: object_store_session .............   Passed    0.07 sec
+    Start 2: object_store_geometry_region
+2/8 Test #2: object_store_geometry_region .....   Passed    0.02 sec
+    Start 3: object_store_volume_target
+3/8 Test #3: object_store_volume_target .......   Passed    0.03 sec
+    Start 4: object_store_fiber_session
+4/8 Test #4: object_store_fiber_session .......   Passed    0.04 sec
+    Start 5: object_store_fiber_json
+5/8 Test #5: object_store_fiber_json ..........   Passed    0.06 sec
+    Start 6: object_store_geometry_edits
+6/8 Test #6: object_store_geometry_edits ......   Passed    0.04 sec
+    Start 7: object_store_hub
+7/8 Test #7: object_store_hub .................   Passed    2.82 sec
+    Start 8: object_store_sftp
+8/8 Test #8: object_store_sftp ................   Passed    5.81 sec
+
+100% tests passed, 0 tests failed out of 8
+
+Total Test time (real) =   8.90 sec

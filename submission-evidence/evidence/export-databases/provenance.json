@@ -1,0 +1,40 @@
+{
+  "source_method": "Auditor-made copies of published annotations changing only version 4 to version 3, imported with the preserved UNMODIFIED upstream native importer. Original downloads unchanged.",
+  "method_credit": "ChaseHendrick, issue 2320 and PR 2321; auditor reproduced the version-3 reference route",
+  "base_commit": "39a8cf3a124bdd5540ee826e1cb30047c8dc8c85",
+  "import_binary_sha256": "912a3de7898331298c100fb400bb287ecdf338ca987cbc388d234e8986596e24",
+  "datasets": {
+    "0332": {
+      "command": [
+        "<WORKSPACE>/evidence/baseline-bin/vc_object_ingest",
+        "--db",
+        "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+        "--author",
+        "export-study",
+        "--fiber",
+        "<WORKSPACE>/audit/scratch/relabel-v3-0332",
+        "--no-progress"
+      ],
+      "exit": 0,
+      "sha256": "23d33939d95656c119c482e23a4f09390f109568b78a464dad96fd06751b70a7",
+      "fibers": 255,
+      "branches": 208
+    },
+    "0139": {
+      "command": [
+        "<WORKSPACE>/evidence/baseline-bin/vc_object_ingest",
+        "--db",
+        "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+        "--author",
+        "export-study",
+        "--fiber",
+        "<WORKSPACE>/audit/scratch/relabel-v3-0139",
+        "--no-progress"
+      ],
+      "exit": 0,
+      "sha256": "73d14c8d9629a2ee3f74fe3bc992476a75dc21990d3cbef44ba343c4c81e1bfb",
+      "fibers": 620,
+      "branches": 634
+    }
+  }
+}

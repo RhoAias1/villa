@@ -1,0 +1,25 @@
+{
+  "export_command": [
+    "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+    "--db",
+    "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+    "--uuid",
+    "7080042d-def1-5564-adf4-0133e6277e77",
+    "--output",
+    "<WORKSPACE>/evidence/export-profile/baseline.json"
+  ],
+  "export_exit": 0,
+  "sample_command": [
+    "/usr/bin/sample",
+    "43156",
+    "1",
+    "1",
+    "-mayDie",
+    "-file",
+    "<WORKSPACE>/evidence/export-profile/baseline-sample.txt"
+  ],
+  "sample_exit": 0,
+  "baseline_binary_sha256": "6d69462072bcc8b5e7a72af7cc7a6287c105f3e7b9d03b42546e8b8bc0a01360",
+  "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e",
+  "note": "Supplementary one-second CPU stack sample of the original 602-fiber-component export. Instrumented run is excluded from benchmark timings."
+}

@@ -1,0 +1,810 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "binary_sha256": {
+    "baseline": "6d69462072bcc8b5e7a72af7cc7a6287c105f3e7b9d03b42546e8b8bc0a01360",
+    "optimized": "73a717c5487992bc235664abee7150586d5d211c7ee89e3fe74ab5336d3e73a3"
+  },
+  "method": "One warmup per binary and case; then paired trials with alternating order. Elapsed time includes process launch. RSS from macOS /usr/bin/time -l. Local, non-concurrent runs; no universal speed claim.",
+  "trials_per_binary_per_case": 5,
+  "cases": [
+    {
+      "scroll": "0332",
+      "source_file": "dj_20260810T113807458_000001.json",
+      "uuid": "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+      "component_fibers": 184,
+      "root_line_points": 10396,
+      "statistics": {
+        "baseline": {
+          "median_seconds": 1.2616238749997137,
+          "min_seconds": 1.2534406249997119,
+          "max_seconds": 1.2709918330001528,
+          "median_max_rss_bytes": 218939392
+        },
+        "optimized": {
+          "median_seconds": 0.06197162499938713,
+          "min_seconds": 0.059661458000846324,
+          "max_seconds": 0.06607675000032032,
+          "median_max_rss_bytes": 20250624
+        },
+        "speedup": 20.358089287027582
+      },
+      "runs": [
+        {
+          "variant": "optimized",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/optimized--1.json"
+          ],
+          "seconds": 0.06639799999993556,
+          "max_rss_bytes": 19906560,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/baseline--1.json"
+          ],
+          "seconds": 1.2784927500006233,
+          "max_rss_bytes": 219578368,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/baseline-0.json"
+          ],
+          "seconds": 1.2709918330001528,
+          "max_rss_bytes": 219611136,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/optimized-0.json"
+          ],
+          "seconds": 0.06607675000032032,
+          "max_rss_bytes": 20168704,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/optimized-1.json"
+          ],
+          "seconds": 0.06197162499938713,
+          "max_rss_bytes": 20250624,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/baseline-1.json"
+          ],
+          "seconds": 1.2634679579996373,
+          "max_rss_bytes": 218562560,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/baseline-2.json"
+          ],
+          "seconds": 1.2534406249997119,
+          "max_rss_bytes": 218808320,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/optimized-2.json"
+          ],
+          "seconds": 0.06520116699994105,
+          "max_rss_bytes": 20283392,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/optimized-3.json"
+          ],
+          "seconds": 0.059661458000846324,
+          "max_rss_bytes": 20283392,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/baseline-3.json"
+          ],
+          "seconds": 1.2616238749997137,
+          "max_rss_bytes": 219250688,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/baseline-4.json"
+          ],
+          "seconds": 1.2547321250003733,
+          "max_rss_bytes": 218939392,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0332-184/optimized-4.json"
+          ],
+          "seconds": 0.06187883299935493,
+          "max_rss_bytes": 20217856,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        }
+      ],
+      "input_database_unchanged": true,
+      "all_outputs_byte_identical": true
+    },
+    {
+      "scroll": "0139",
+      "source_file": "dj_20260902T151037604_000001.json",
+      "uuid": "7080042d-def1-5564-adf4-0133e6277e77",
+      "component_fibers": 602,
+      "root_line_points": 2591,
+      "statistics": {
+        "baseline": {
+          "median_seconds": 3.5113470840005903,
+          "min_seconds": 3.4694114160001845,
+          "max_seconds": 3.533162916999572,
+          "median_max_rss_bytes": 550993920
+        },
+        "optimized": {
+          "median_seconds": 0.10972362500069721,
+          "min_seconds": 0.10762654200061661,
+          "max_seconds": 0.11993641700064472,
+          "median_max_rss_bytes": 24313856
+        },
+        "speedup": 32.00174150260054
+      },
+      "runs": [
+        {
+          "variant": "optimized",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/optimized--1.json"
+          ],
+          "seconds": 0.10853129099996295,
+          "max_rss_bytes": 24395776,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/baseline--1.json"
+          ],
+          "seconds": 3.490501457999926,
+          "max_rss_bytes": 550993920,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/baseline-0.json"
+          ],
+          "seconds": 3.5113470840005903,
+          "max_rss_bytes": 551370752,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/optimized-0.json"
+          ],
+          "seconds": 0.10972362500069721,
+          "max_rss_bytes": 24444928,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/optimized-1.json"
+          ],
+          "seconds": 0.11731487500037474,
+          "max_rss_bytes": 24313856,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/baseline-1.json"
+          ],
+          "seconds": 3.5135757909993117,
+          "max_rss_bytes": 550993920,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/baseline-2.json"
+          ],
+          "seconds": 3.4694114160001845,
+          "max_rss_bytes": 550748160,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/optimized-2.json"
+          ],
+          "seconds": 0.11993641700064472,
+          "max_rss_bytes": 24346624,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/optimized-3.json"
+          ],
+          "seconds": 0.10762654200061661,
+          "max_rss_bytes": 24215552,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/baseline-3.json"
+          ],
+          "seconds": 3.533162916999572,
+          "max_rss_bytes": 551092224,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/baseline-4.json"
+          ],
+          "seconds": 3.478931874999944,
+          "max_rss_bytes": 550617088,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-602/optimized-4.json"
+          ],
+          "seconds": 0.10803008299990324,
+          "max_rss_bytes": 24281088,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        }
+      ],
+      "input_database_unchanged": true,
+      "all_outputs_byte_identical": true
+    },
+    {
+      "scroll": "0139",
+      "source_file": "lt_20261007T084812276_000336.json",
+      "uuid": "8a77895f-befd-5d36-932d-a6b5a484e06d",
+      "component_fibers": 1,
+      "root_line_points": 627,
+      "statistics": {
+        "baseline": {
+          "median_seconds": 0.11028233300021384,
+          "min_seconds": 0.10237191600026563,
+          "max_seconds": 0.13908012499996403,
+          "median_max_rss_bytes": 22577152
+        },
+        "optimized": {
+          "median_seconds": 0.10587191700051335,
+          "min_seconds": 0.10324608300015825,
+          "max_seconds": 0.13512850000006438,
+          "median_max_rss_bytes": 22528000
+        },
+        "speedup": 1.0416580347711952
+      },
+      "runs": [
+        {
+          "variant": "optimized",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/optimized--1.json"
+          ],
+          "seconds": 0.10398604199963302,
+          "max_rss_bytes": 22478848,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/baseline--1.json"
+          ],
+          "seconds": 0.1029342080000788,
+          "max_rss_bytes": 22511616,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/baseline-0.json"
+          ],
+          "seconds": 0.10237191600026563,
+          "max_rss_bytes": 22511616,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/optimized-0.json"
+          ],
+          "seconds": 0.10379133300011745,
+          "max_rss_bytes": 22528000,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/optimized-1.json"
+          ],
+          "seconds": 0.10324608300015825,
+          "max_rss_bytes": 22511616,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/baseline-1.json"
+          ],
+          "seconds": 0.11028233300021384,
+          "max_rss_bytes": 22609920,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/baseline-2.json"
+          ],
+          "seconds": 0.12244058300075267,
+          "max_rss_bytes": 22642688,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/optimized-2.json"
+          ],
+          "seconds": 0.12215558299976692,
+          "max_rss_bytes": 22528000,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/optimized-3.json"
+          ],
+          "seconds": 0.13512850000006438,
+          "max_rss_bytes": 22593536,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/baseline-3.json"
+          ],
+          "seconds": 0.13908012499996403,
+          "max_rss_bytes": 22577152,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/baseline-4.json"
+          ],
+          "seconds": 0.1040218329999334,
+          "max_rss_bytes": 22528000,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/export-final-benchmark/0139-1/optimized-4.json"
+          ],
+          "seconds": 0.10587191700051335,
+          "max_rss_bytes": 22495232,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        }
+      ],
+      "input_database_unchanged": true,
+      "all_outputs_byte_identical": true
+    }
+  ]
+}

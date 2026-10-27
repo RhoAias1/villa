@@ -1,0 +1,810 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "binary_sha256": {
+    "baseline": "6d69462072bcc8b5e7a72af7cc7a6287c105f3e7b9d03b42546e8b8bc0a01360",
+    "optimized": "73a717c5487992bc235664abee7150586d5d211c7ee89e3fe74ab5336d3e73a3"
+  },
+  "method": "One warmup per binary and case; then paired trials with alternating order. Elapsed time includes process launch. RSS from macOS /usr/bin/time -l. Local, non-concurrent runs; no universal speed claim.",
+  "trials_per_binary_per_case": 5,
+  "cases": [
+    {
+      "scroll": "0332",
+      "source_file": "dj_20260810T113807458_000001.json",
+      "uuid": "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+      "component_fibers": 184,
+      "root_line_points": 10396,
+      "statistics": {
+        "baseline": {
+          "median_seconds": 1.2503643750005722,
+          "min_seconds": 1.2434803329997521,
+          "max_seconds": 1.2626108339991333,
+          "median_max_rss_bytes": 218923008
+        },
+        "optimized": {
+          "median_seconds": 0.05874704099915107,
+          "min_seconds": 0.05806320900046558,
+          "max_seconds": 0.06172579200028849,
+          "median_max_rss_bytes": 19955712
+        },
+        "speedup": 21.28386985514114
+      },
+      "runs": [
+        {
+          "variant": "optimized",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/optimized--1.json"
+          ],
+          "seconds": 0.06266054199841165,
+          "max_rss_bytes": 20119552,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/baseline--1.json"
+          ],
+          "seconds": 1.2176329159992747,
+          "max_rss_bytes": 218939392,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/baseline-0.json"
+          ],
+          "seconds": 1.2434803329997521,
+          "max_rss_bytes": 218923008,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/optimized-0.json"
+          ],
+          "seconds": 0.05806320900046558,
+          "max_rss_bytes": 19824640,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/optimized-1.json"
+          ],
+          "seconds": 0.05815695800083631,
+          "max_rss_bytes": 20250624,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/baseline-1.json"
+          ],
+          "seconds": 1.2503643750005722,
+          "max_rss_bytes": 219611136,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/baseline-2.json"
+          ],
+          "seconds": 1.2477432910000061,
+          "max_rss_bytes": 219611136,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/optimized-2.json"
+          ],
+          "seconds": 0.05874704099915107,
+          "max_rss_bytes": 20316160,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/optimized-3.json"
+          ],
+          "seconds": 0.058986125000956235,
+          "max_rss_bytes": 19955712,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/baseline-3.json"
+          ],
+          "seconds": 1.2534257079987583,
+          "max_rss_bytes": 218841088,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "baseline",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/baseline-4.json"
+          ],
+          "seconds": 1.2626108339991333,
+          "max_rss_bytes": 218742784,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        },
+        {
+          "variant": "optimized",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0332.vcobj",
+            "--uuid",
+            "f5413426-fec3-4dbf-b227-060b77a3f8bf",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0332-184/optimized-4.json"
+          ],
+          "seconds": 0.06172579200028849,
+          "max_rss_bytes": 19873792,
+          "exit": 0,
+          "output_sha256": "c999bbe6ad56b63f46ddcc67e9c9f3f1ed878e6567a2ea23d904c281a2f3d097"
+        }
+      ],
+      "input_database_unchanged": true,
+      "all_outputs_byte_identical": true
+    },
+    {
+      "scroll": "0139",
+      "source_file": "dj_20260902T151037604_000001.json",
+      "uuid": "7080042d-def1-5564-adf4-0133e6277e77",
+      "component_fibers": 602,
+      "root_line_points": 2591,
+      "statistics": {
+        "baseline": {
+          "median_seconds": 3.4994313339993823,
+          "min_seconds": 3.4911938329987606,
+          "max_seconds": 3.5405102920012723,
+          "median_max_rss_bytes": 551010304
+        },
+        "optimized": {
+          "median_seconds": 0.1076984999999695,
+          "min_seconds": 0.106891875000656,
+          "max_seconds": 0.10972145800042199,
+          "median_max_rss_bytes": 24297472
+        },
+        "speedup": 32.492851191059984
+      },
+      "runs": [
+        {
+          "variant": "optimized",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/optimized--1.json"
+          ],
+          "seconds": 0.10910770800001046,
+          "max_rss_bytes": 24199168,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/baseline--1.json"
+          ],
+          "seconds": 3.5000595829988015,
+          "max_rss_bytes": 551370752,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/baseline-0.json"
+          ],
+          "seconds": 3.4911938329987606,
+          "max_rss_bytes": 551469056,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/optimized-0.json"
+          ],
+          "seconds": 0.1076984999999695,
+          "max_rss_bytes": 24248320,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/optimized-1.json"
+          ],
+          "seconds": 0.1069740830007504,
+          "max_rss_bytes": 24248320,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/baseline-1.json"
+          ],
+          "seconds": 3.5405102920012723,
+          "max_rss_bytes": 552321024,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/baseline-2.json"
+          ],
+          "seconds": 3.4994313339993823,
+          "max_rss_bytes": 551010304,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/optimized-2.json"
+          ],
+          "seconds": 0.10972145800042199,
+          "max_rss_bytes": 24297472,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/optimized-3.json"
+          ],
+          "seconds": 0.1086366250001447,
+          "max_rss_bytes": 24297472,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/baseline-3.json"
+          ],
+          "seconds": 3.496021582999674,
+          "max_rss_bytes": 550830080,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "baseline",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/baseline-4.json"
+          ],
+          "seconds": 3.538362084000255,
+          "max_rss_bytes": 550404096,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        },
+        {
+          "variant": "optimized",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "7080042d-def1-5564-adf4-0133e6277e77",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-602/optimized-4.json"
+          ],
+          "seconds": 0.106891875000656,
+          "max_rss_bytes": 24313856,
+          "exit": 0,
+          "output_sha256": "689b03718aef204fb5614714c3db1969f89ef4a2fe01a8e0538748d1da691a9e"
+        }
+      ],
+      "input_database_unchanged": true,
+      "all_outputs_byte_identical": true
+    },
+    {
+      "scroll": "0139",
+      "source_file": "lt_20261007T084812276_000336.json",
+      "uuid": "8a77895f-befd-5d36-932d-a6b5a484e06d",
+      "component_fibers": 1,
+      "root_line_points": 627,
+      "statistics": {
+        "baseline": {
+          "median_seconds": 0.10234766699977627,
+          "min_seconds": 0.10119024999949033,
+          "max_seconds": 0.10302345800118928,
+          "median_max_rss_bytes": 22642688
+        },
+        "optimized": {
+          "median_seconds": 0.10466774999986228,
+          "min_seconds": 0.10303300000123272,
+          "max_seconds": 0.10476324999945064,
+          "median_max_rss_bytes": 22511616
+        },
+        "speedup": 0.9778338313368821
+      },
+      "runs": [
+        {
+          "variant": "optimized",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/optimized--1.json"
+          ],
+          "seconds": 0.1031280829993193,
+          "max_rss_bytes": 22528000,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": -1,
+          "warmup": true,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/baseline--1.json"
+          ],
+          "seconds": 0.10320475000116858,
+          "max_rss_bytes": 22626304,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/baseline-0.json"
+          ],
+          "seconds": 0.10239016600098694,
+          "max_rss_bytes": 22544384,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 0,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/optimized-0.json"
+          ],
+          "seconds": 0.10467604200130154,
+          "max_rss_bytes": 22511616,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/optimized-1.json"
+          ],
+          "seconds": 0.10382487500100979,
+          "max_rss_bytes": 22511616,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 1,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/baseline-1.json"
+          ],
+          "seconds": 0.10302345800118928,
+          "max_rss_bytes": 22724608,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/baseline-2.json"
+          ],
+          "seconds": 0.10234766699977627,
+          "max_rss_bytes": 22642688,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 2,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/optimized-2.json"
+          ],
+          "seconds": 0.10476324999945064,
+          "max_rss_bytes": 22577152,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/optimized-3.json"
+          ],
+          "seconds": 0.10303300000123272,
+          "max_rss_bytes": 22446080,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 3,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/baseline-3.json"
+          ],
+          "seconds": 0.10119024999949033,
+          "max_rss_bytes": 22675456,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "baseline",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/evidence/baseline-bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/baseline-4.json"
+          ],
+          "seconds": 0.10191129200029536,
+          "max_rss_bytes": 22642688,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        },
+        {
+          "variant": "optimized",
+          "trial": 4,
+          "warmup": false,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "<WORKSPACE>/build-export/bin/vc_object_export",
+            "--db",
+            "<WORKSPACE>/evidence/export-databases/0139.vcobj",
+            "--uuid",
+            "8a77895f-befd-5d36-932d-a6b5a484e06d",
+            "--output",
+            "<WORKSPACE>/evidence/sako-benchmark/0139-1/optimized-4.json"
+          ],
+          "seconds": 0.10466774999986228,
+          "max_rss_bytes": 22560768,
+          "exit": 0,
+          "output_sha256": "73a902c8f68f08f8a613b6aacd6f81b04c00482723c8acee8a764ad215e114a3"
+        }
+      ],
+      "input_database_unchanged": true,
+      "all_outputs_byte_identical": true
+    }
+  ]
+}

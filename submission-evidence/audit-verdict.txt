@@ -1,0 +1,24 @@
+**Verdict: PASS.** Patch `62bb5b1c679510607c1e8640d0ddd1af7845de9a9da2e11cf232a80f58d63b8e` (base `39a8cf3a…`) is technically ready for Sako's review. The one condition from my last verdict is met: the geometry-less-peer test now covers the peer stored in both endpoint positions and catches a check on only one side.
+
+**What changed since revision 2 (`e22601e7…`)**
+- Only the C++ test changed. I rebuilt both versions from the base commit and compared them: the three production files are identical.
+- The test now inserts `{first, second}`, which places the geometry-less peer first in one iteration and second in the other.
+- It also asserts where the peer was stored (`a` in one iteration, `b` in the other), reading the same relationship record that the exporter itself uses.
+
+**Checks I ran**
+- **Patch identity:** the patch hash equals the worktree diff, and the previous patch is `e22601e7…` as expected.
+- **Fresh builds:** on both macOS and Linux, the test object matches a recompile of the final test source byte for byte. The exporter code object, the CLI (`73a717c5…`) and the corpus helper (`660557c0…`) are unchanged since my last review, which matches `export-final-binary-check.json`. So the earlier benchmark and 875-fiber corpus results still apply.
+- **Final test against correct and broken versions of the exporter code:**
+
+  | Exporter code | macOS release | macOS strict library checks | Linux `-O3` | Linux `-O0` |
+  |---|---|---|---|---|
+  | Correct (final) | passes | passes | passes | passes |
+  | Checks only one side (either side) | caught | caught | caught | caught |
+  | Revision 1, no check | caught | caught | not rerun | not rerun |
+  | Correct check, different error message | caught | caught | not rerun | not rerun |
+
+  The check-only-the-`b`-side version was the one the previous test missed; it is now caught everywhere. The shipped test binaries pass on both platforms.
+- **The new assertion protects itself:** if the insertion order is put back the old way, the test fails on the new assertion even with the correct exporter code.
+- **Packet wording:** `review.html` now says that errors elsewhere in the connected group may no longer block a single-fiber export, and that full-network export keeps its checks. That matches my earlier comparison runs.
+
+I didn't repeat the full test suites or the random comparison campaign, because production code didn't change and I found no new risk. Nothing outside `audit/export-condition-scratch/` (71 MB) changed during this check, I wrote no report file, and nothing was published or submitted. Sako's personal review and commentary, any screenshot, and prize eligibility remain separate steps.

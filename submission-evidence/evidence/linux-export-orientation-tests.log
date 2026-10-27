@@ -1,0 +1,12 @@
+['docker', '--context', 'colima-vesuvius-prize', 'run', '--rm', '--network', 'none', '--user', '501:20', '--mount', 'type=bind,source=<WORKSPACE>,target=/work', 'vesuvius-prize-tests:20261026', 'cmake', '--build', 'build-linux-export', '--target', 'test_object_store_fiber_json', '-j', '2']
+[0/2] Re-checking globbed directories...
+[1/3] Building CXX object tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o
+[2/3] Linking CXX executable bin/test_object_store_fiber_json
+['docker', '--context', 'colima-vesuvius-prize', 'run', '--rm', '--network', 'none', '--user', '501:20', '--mount', 'type=bind,source=<WORKSPACE>,target=/work', 'vesuvius-prize-tests:20261026', 'ctest', '--test-dir', 'build-linux-export', '-R', '^object_store_fiber_json$', '--output-on-failure']
+Test project /work/build-linux-export
+    Start 5: object_store_fiber_json
+1/1 Test #5: object_store_fiber_json ..........   Passed    0.06 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.07 sec

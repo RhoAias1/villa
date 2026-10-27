@@ -1,0 +1,16 @@
+Supplementary baseline CPU profile
+
+Tool: macOS /usr/bin/sample, one-second duration, 1 ms requested interval.
+Target: the independently built original vc_object_export, exporting the measured
+PHerc0139 root in the 602-fiber component. The command and binary/output hashes
+are recorded in receipt.json. The output matches the reference SHA-256.
+
+In the captured window, all 776 main-thread samples were beneath fiberNetworkJson.
+547 samples were beneath fiberRevisionJson (geometry/metadata work and JSON
+encoding); 229 were at the subsequent network-loop JSON parse call. The complete
+symbolized call tree is baseline-sample.txt.
+
+This is a short sampling window, not a whole-run attribution or an after/before
+CPU profile comparison. It supports the inspected code path: the single-object
+exporter constructs the connected fibers' JSON before keeping one document.
+The instrumented run is excluded from all benchmark timings and memory claims.

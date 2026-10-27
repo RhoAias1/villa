@@ -1,0 +1,11 @@
+['cmake', '--build', 'build-export', '--target', 'test_object_store_fiber_json', '-j', '2']
+[1/2] Building CXX object tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o
+[2/2] Linking CXX executable bin/test_object_store_fiber_json
+['ctest', '--test-dir', 'build-export', '-R', '^object_store_fiber_json$', '--output-on-failure']
+Test project <WORKSPACE>/build-export
+    Start 5: object_store_fiber_json
+1/1 Test #5: object_store_fiber_json ..........   Passed    0.07 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   0.07 sec

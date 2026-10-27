@@ -1,0 +1,3 @@
+['docker', '--context', 'colima-vesuvius-prize', 'run', '--rm', '--network', 'none', '--user', '501:20', '--mount', 'type=bind,source=<WORKSPACE>,target=/work', '--env', 'VC_OBJECT_STORE_BUILD_PYTHON_PATH=/work/build-linux-export/python', '--env', 'PYTHONDONTWRITEBYTECODE=1', 'vesuvius-prize-tests:20261026', 'python', '-m', 'pytest', '-q', 'villa-export/vc_object_store/tests/python']
+..................................                                       [100%]
+34 passed in 1.20s

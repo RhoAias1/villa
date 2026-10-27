@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-10-27 05:52:53 UTC",
+  "hardware": {
+    "chip": "Apple M3",
+    "memory_bytes": 17179869184,
+    "logical_cpus": 8
+  },
+  "native": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\ncmake version 4.4.4\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\nProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83",
+  "linux_image": "sha256:ca741cce1cb8be860a22bdd69e54bf601e9dbbb87177eabf097b4cf731cc7a75",
+  "linux_python_packages": [
+    "iniconfig==2.3.1",
+    "nanobind==3.1.0",
+    "numpy==2.5.4",
+    "packaging==26.3",
+    "pluggy==1.7.0",
+    "Pygments==2.21.0",
+    "pytest==9.1.1"
+  ],
+  "linux": {
+    "image_recipe": "linux-env/Dockerfile",
+    "architecture": "arm64",
+    "cpus": 3,
+    "memory_gib": 4,
+    "profile": "vesuvius-prize",
+    "container_network_for_tests": "none",
+    "same_physical_host": true
+  },
+  "native_python_limitation": "Upstream vc_reader atomic<shared_ptr> does not compile with installed libc++; tracked by upstream draft PR #2300. Python suite was run in Linux."
+}

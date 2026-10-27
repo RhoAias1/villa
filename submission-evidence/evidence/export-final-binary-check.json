@@ -1,0 +1,12 @@
+{
+  "patch_sha256": "62bb5b1c679510607c1e8640d0ddd1af7845de9a9da2e11cf232a80f58d63b8e",
+  "production_code_unchanged_from_revision2": true,
+  "optimized_cli_sha256": "73a717c5487992bc235664abee7150586d5d211c7ee89e3fe74ab5336d3e73a3",
+  "optimized_helper_sha256": "660557c0337d4ca64973b9a303837b0d715f514fb431181a5b3a85079321dce4",
+  "benchmark_and_corpus_binaries_unchanged": true,
+  "source_files_compared_with_revision2": [
+    "vc_object_store/include/vc_object_store/objects/FiberJson.hpp",
+    "vc_object_store/src/formats/FiberJson.cpp",
+    "vc_object_store/src/geometry/GeometryExport.cpp"
+  ]
+}

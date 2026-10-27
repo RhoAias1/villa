@@ -1,0 +1,49 @@
+['cmake', '--build', 'build-export', '-j', '2']
+[1/15] Building CXX object tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o
+[2/15] Building CXX object src/CMakeFiles/vc_objects.dir/formats/FiberJson.cpp.o
+[3/15] Linking CXX static library src/libvc_objects.a
+[4/15] Linking CXX executable bin/vc_object_ingest
+[5/15] Linking CXX executable bin/vc_object_export
+[6/15] Linking CXX executable bin/vc_object_hub
+[7/15] Linking CXX executable bin/test_object_store_session
+[8/15] Linking CXX executable bin/test_object_store_volume_target
+[9/15] Linking CXX executable bin/test_object_store_geometry_region
+[10/15] Linking CXX executable bin/test_object_store_fiber_session
+[11/15] Linking CXX executable bin/test_object_store_fiber_json
+FAILED: [code=1] bin/test_object_store_fiber_json 
+: && /usr/bin/c++ -O3 -DNDEBUG -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o -o bin/test_object_store_fiber_json  src/libvc_objects.a  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libsqlite3.tbd  src/libvc_geometry.a  src/libvc_sftp.a  /opt/homebrew/lib/libcrypto.dylib  /opt/homebrew/opt/zstd/lib/libzstd.dylib && :
+Undefined symbols for architecture arm64:
+  "vc::objects::exportGeometry(vc::objects::ObjectStore&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::__fs::filesystem::path const&, std::__1::optional<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>> const&, bool)", referenced from:
+      _main in test_object_store_fiber_json.cpp.o
+ld: symbol(s) not found for architecture arm64
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+[12/15] Linking CXX executable bin/test_object_store_geometry_edits
+ninja: build stopped: subcommand failed.
+['cmake', '--build', 'build-export', '-j', '2']
+[1/5] Linking CXX executable bin/test_object_store_hub
+[2/5] Linking CXX executable bin/test_object_store_sftp
+[3/5] Linking CXX executable bin/bench_volume_queries
+[4/5] Building CXX object tests/cpp/CMakeFiles/test_object_store_fiber_json.dir/test_object_store_fiber_json.cpp.o
+[5/5] Linking CXX executable bin/test_object_store_fiber_json
+['ctest', '--test-dir', 'build-export', '--output-on-failure']
+Test project <WORKSPACE>/build-export
+    Start 1: object_store_session
+1/8 Test #1: object_store_session .............   Passed    0.09 sec
+    Start 2: object_store_geometry_region
+2/8 Test #2: object_store_geometry_region .....   Passed    0.02 sec
+    Start 3: object_store_volume_target
+3/8 Test #3: object_store_volume_target .......   Passed    0.03 sec
+    Start 4: object_store_fiber_session
+4/8 Test #4: object_store_fiber_session .......   Passed    0.04 sec
+    Start 5: object_store_fiber_json
+5/8 Test #5: object_store_fiber_json ..........   Passed    0.06 sec
+    Start 6: object_store_geometry_edits
+6/8 Test #6: object_store_geometry_edits ......   Passed    0.05 sec
+    Start 7: object_store_hub
+7/8 Test #7: object_store_hub .................   Passed    2.76 sec
+    Start 8: object_store_sftp
+8/8 Test #8: object_store_sftp ................   Passed    6.37 sec
+
+100% tests passed out of 8
+
+Total Test time (real) =   9.43 sec
