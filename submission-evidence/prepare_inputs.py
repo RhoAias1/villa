@@ -14,6 +14,11 @@ def sha(path):
         return hashlib.file_digest(source, "sha256").hexdigest()
 
 
+def require(condition, explanation):
+    if not condition:
+        raise RuntimeError(explanation)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parent)
@@ -37,24 +42,29 @@ def main():
 
         def fetch_and_check(entry):
             name = entry["filename"]
-            assert Path(name).name == name and name.endswith(".json")
+            require(Path(name).name == name and name.endswith(".json"),
+                    "Manifest filename must be a JSON basename")
             source = original_dir / name
             if not source.exists():
                 if args.verify_only:
                     raise RuntimeError(f"Missing original: {source}")
                 url = urlparse(entry["url"])
-                assert url.scheme == "https" and url.hostname == "dl.ash2txt.org"
+                require(url.scheme == "https" and url.hostname == "dl.ash2txt.org",
+                        "Manifest URL must use the public HTTPS data host")
                 data = urlopen(entry["url"], timeout=90).read()
-                assert len(data) == entry["bytes"]
-                assert hashlib.sha256(data).hexdigest() == entry["sha256"]
+                require(len(data) == entry["bytes"], "Downloaded source size differs from manifest")
+                require(hashlib.sha256(data).hexdigest() == entry["sha256"],
+                        "Downloaded source hash differs from manifest")
                 source.write_bytes(data)
-            assert source.stat().st_size == entry["bytes"] and sha(source) == entry["sha256"], source
+            require(source.stat().st_size == entry["bytes"] and sha(source) == entry["sha256"],
+                    "Original source differs from manifest: " + str(source))
             obj = json.loads(source.read_bytes())
             if obj["version"] == 4:
                 obj["version"] = 3
             converted = converted_dir / name
             if args.verify_only or converted.exists():
-                assert json.loads(converted.read_bytes()) == obj, converted
+                require(json.loads(converted.read_bytes()) == obj,
+                        "Migration copy differs from expected conversion: " + str(converted))
             else:
                 converted.write_text(json.dumps(obj) + "\n")
 
@@ -62,7 +72,8 @@ def main():
             list(pool.map(fetch_and_check, manifest["files"]))
         db = root / f"evidence/export-databases/{scroll}.vcobj"
         if db.exists():
-            assert sha(db) == provenance["datasets"][scroll]["sha256"], db
+            require(sha(db) == provenance["datasets"][scroll]["sha256"],
+                    "Store hash differs from provenance: " + str(db))
         else:
             if args.verify_only:
                 raise RuntimeError(f"Missing store: {db}")
